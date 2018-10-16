@@ -1,0 +1,17 @@
+Jan\ZadanieBundle\Entity\Items:
+    type: entity
+    table: null
+    repositoryClass: Jan\ZadanieBundle\Repository\ItemsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '120'
+        amount:
+            type: integer
+    lifecycleCallbacks: {  }

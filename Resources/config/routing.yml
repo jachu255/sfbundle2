@@ -1,0 +1,37 @@
+jan_zadanie_getAll:
+    path:     /.{_format}    
+    defaults: { _controller: JanZadanieBundle:Rest:getAll, _format: json }
+    condition: "context.getMethod() in ['GET']"
+    requirements:
+        _format:  json|xml
+
+jan_zadanie_get:
+    path:     /{id}.{_format}    
+    defaults: { _controller: JanZadanieBundle:Rest:get, _format: json }
+    condition: "context.getMethod() in ['GET']"
+    requirements:
+        _format:  json|xml    
+        id: '\d+'    
+
+jan_zadanie_post:
+    path:     /.{_format}
+    defaults: { _controller: JanZadanieBundle:Rest:post, _format: json }
+    condition: "context.getMethod() in ['POST']"
+    requirements:
+        _format:  json|xml
+
+jan_zadanie_put:
+    path:     /{id}.{_format}
+    defaults: { _controller: JanZadanieBundle:Rest:put, _format: json }
+    condition: "context.getMethod() in ['PUT']"
+    requirements:
+        _format:  json|xml
+        id: '\d+'
+
+jan_zadanie_delete:
+    path:     /{id}.{_format}
+    defaults: { _controller: JanZadanieBundle:Rest:delete, _format: json }
+    condition: "context.getMethod() in ['DELETE']"
+    requirements:
+        _format:  json|xml
+        id: '\d+'
