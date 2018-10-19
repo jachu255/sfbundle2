@@ -16,7 +16,7 @@
     },
     "autoload" : {
         "psr-0" : {
-            "Jan\\Zadaniebundle" : ""
+            "Jan\\Zadaniebundle" : "src/Jan/Zadaniebundle"
         }
     },
     "target-dir" : "Jan/Zadaniebundle",
