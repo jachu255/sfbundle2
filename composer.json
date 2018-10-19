@@ -1,5 +1,5 @@
 {
-    "name" : "Jan/Zadaniebundle",
+    "name" : "Jan/ZadanieBundle",
     "description" : "A demo bundle",
     "type" : "symfony-bundle",
     "authors" : [{
@@ -16,10 +16,10 @@
     },
     "autoload" : {
         "psr-0" : {
-            "Jan\\Zadaniebundle" : "src/Jan/Zadaniebundle"
+            "Jan\\ZadanieBundle" : ""
         }
     },
-    "target-dir" : "Jan/Zadaniebundle",
+    "target-dir" : "Jan/ZadanieBundle",
     "repositories" : [{
     }],
     "extra" : {
