@@ -52,6 +52,9 @@ class RestController extends Controller
         $validator = $this->get('validator');
         $errors = $validator->validate($item);
         if (count($errors) > 0) {
+            /*foreach ($errors as $error) {
+                echo $error->getMessage().'<br>';
+            }*/            
             throw new HttpException(400, $errors);
         }
 
