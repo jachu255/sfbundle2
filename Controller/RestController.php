@@ -14,10 +14,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Jan\ZadanieBundle\Entity\Items;
 
 class RestController extends Controller
-{
-    /* Todo
-        Do zrobienia walidacja
-    */
+{    
     public function getAllAction(Request $request, $_format){
         $repository = $this->getDoctrine()
         ->getRepository(Items::class);
@@ -30,7 +27,9 @@ class RestController extends Controller
         $serializer = new Serializer(array(new GetSetMethodNormalizer()), array(new XmlEncoder(), new JsonEncoder()));
         $res = $serializer->serialize($items, $_format);
 
-        return new Response($res,200);
+        $response = new Response($res,200);
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
     }
     public function getAction($_format, $id){
         $em = $this->getDoctrine()->getManager();
@@ -42,7 +41,9 @@ class RestController extends Controller
         $serializer = new Serializer(array(new GetSetMethodNormalizer()), array(new XmlEncoder(), new JsonEncoder()));
         $res = $serializer->serialize($item, $_format);
 
-        return new Response($res,200);
+        $response = new Response($res,200);
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
     }
     public function postAction(Request $request, $_format){
         $item = new Items();
@@ -70,7 +71,9 @@ class RestController extends Controller
         $serializer = new Serializer(array(new GetSetMethodNormalizer()), array(new XmlEncoder(), new JsonEncoder()));
         $res = $serializer->serialize($data, $_format);
 
-        return new Response($res,200);
+        $response = new Response($res,200);
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
     }
     public function putAction(Request $request, $_format, $id){        
         $em = $this->getDoctrine()->getManager();
@@ -93,10 +96,12 @@ class RestController extends Controller
             'message' => 'Zaktualizowano rekord id = '.$id
         );
 
-         $serializer = new Serializer(array(new GetSetMethodNormalizer()), array(new XmlEncoder(), new JsonEncoder()));
-         $res = $serializer->serialize($data, $_format);
+        $serializer = new Serializer(array(new GetSetMethodNormalizer()), array(new XmlEncoder(), new JsonEncoder()));
+        $res = $serializer->serialize($data, $_format);
 
-         return new Response($res,200);
+        $response = new Response($res,200);
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
     }
     public function deleteAction($_format, $id){
         $em = $this->getDoctrine()->getManager();
@@ -112,9 +117,11 @@ class RestController extends Controller
             'message' => 'Usuniety rekord id = '.$id
         );
 
-         $serializer = new Serializer(array(new GetSetMethodNormalizer()), array(new XmlEncoder(), new JsonEncoder()));
-         $res = $serializer->serialize($data, $_format);
+        $serializer = new Serializer(array(new GetSetMethodNormalizer()), array(new XmlEncoder(), new JsonEncoder()));
+        $res = $serializer->serialize($data, $_format);
 
-         return new Response($res,200);
+        $response = new Response($res,200);
+        $response->headers->set('Access-Control-Allow-Origin', '*');
+        return $response;
     }
 }
